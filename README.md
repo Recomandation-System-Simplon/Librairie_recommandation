@@ -7,9 +7,9 @@ Projet de recommandation de livres pour un libraire
 ```console
 git clone https://github.com/Recomandation-System-Simplon/Librairie_recommandation.git
 cd Librairie_recommandation
+```
 
 Si anaconda installer sur votre machine :
-
 ```console
 conda deactivate
 ```
