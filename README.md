@@ -13,7 +13,8 @@ Si anaconda installer sur votre machine :
 ```console
 conda deactivate
 ```
-En suite :
+En suite création de l'environnement de travail :
+```console
 
 python -m venv venv
 ```
@@ -28,3 +29,4 @@ source venv/bin/activate
 Ensuite finir par :
 ```console
 pip install -r requirements.txt
+```
