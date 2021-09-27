@@ -141,3 +141,6 @@ cython_debug/
 
 # VScode
 .vscode
+
+# Fichier similarité cosinu
+cos_sim.npy
