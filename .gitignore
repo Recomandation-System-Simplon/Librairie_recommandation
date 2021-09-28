@@ -144,3 +144,6 @@ cython_debug/
 
 # Fichier similarité cosinu
 cos_sim.npy
+
+# Fichier predicted_ratings
+predicted_ratings
