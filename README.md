@@ -31,7 +31,8 @@ Ensuite finir par :
 pip install -r requirements.txt
 ```
 
-# Entraînement modèles (peut prendre quelques minutes)
+# Entraînement modèles
+(peut prendre quelques minutes)
 ```console
 python trainCollaborativeFiltering.py
 python trainContentBased.py
