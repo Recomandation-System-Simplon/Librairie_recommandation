@@ -11,6 +11,7 @@ Entraînement du modèle de recommandation basé sur la popularté des livres
 """
 
 import pandas as pd
+import pyarrow.feather as feather
 
 books = pd.read_csv("data/books.csv")
 books2=books[["book_id","goodreads_book_id","title","authors","average_rating","ratings_count"]].sort_values(["average_rating","ratings_count"],ascending=False)
@@ -30,5 +31,5 @@ R = books3["average_rating"]
 
 books3["weighted_rating"] = ( v/(v+m) * R )+( m/(v+m) * C )
 
-books3.sort_values("weighted_rating",ascending=False)
-books3[["book_id","goodreads_book_id","title","weighted_rating"]].to_csv("data/popularity_books.csv")
+books3 = books3.sort_values("weighted_rating",ascending=False)
+feather.write_feather(books3[["book_id","goodreads_book_id","title","weighted_rating"]],"data/popularity_books")

@@ -16,12 +16,16 @@ import numpy as np
 import pyarrow.feather as feather
 
 cos_sim = np.load("data/cos_sim.npy")
-index_books = pd.read_csv("data/index_books.csv")
 books = pd.read_csv("data/books.csv")
-popularity_books = pd.read_csv("data/popularity_books.csv")
-
 ratings = pd.read_csv("data/ratings.csv")
 original_ratings = ratings.pivot(index="user_id",columns="book_id",values="rating").fillna(0)
+
+index_books = feather.read_feather("data/index_books")
+index_books.rename(columns={0: "book"})
+
+popularity_books = feather.read_feather("data/popularity_books")
+popularity_books.rename(columns={0: "book_id", 1: "goodreads_book_id", 2: "title", 3: "weighted_rating"})
+
 predicted_ratings = feather.read_feather("data/predicted_ratings")
 predicted_ratings = pd.DataFrame(predicted_ratings, columns=original_ratings.columns, index=original_ratings.index)
 

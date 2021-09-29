@@ -14,6 +14,7 @@ import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
 import numpy as np
+import pyarrow.feather as feather
 
 books = pd.read_csv("data/books.csv")
 tags = pd.read_csv("data/tags.csv")
@@ -117,7 +118,7 @@ def create_bag(book_id):
 df["bag_of_tags"] = df["book"].apply(create_bag)
 
 # Exporter le tableau qui fait coller l'index du livre dans la matrice sim cos à son ID
-df["book"].to_csv("data/index_books.csv")
+feather.write_feather(df["book"].to_frame(),"data/index_books")
 
 # A partir du bag of tags on peut utiliser countvectorizer pour créer la matrice qui nous servira a calculcer la similarité entre chaque livre
 count = CountVectorizer()
