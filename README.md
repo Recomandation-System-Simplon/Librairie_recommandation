@@ -30,3 +30,14 @@ Ensuite finir par :
 ```console
 pip install -r requirements.txt
 ```
+
+# Entraînement modèles (peut prendre quelques minutes)
+```console
+python trainCollaborativeFiltering.py
+python trainContentBased.py
+```
+
+# Lancer la recommandation
+```console
+python Recommandation.py
+```
